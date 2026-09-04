@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface StorageSpaceRepository extends JpaRepository<StorageSpace, Long> {
     Optional<StorageSpace> findBySpaceIdentifier(String spaceIdentifier);
     List<StorageSpace> findByStorageTypeAndIsOccupiedFalse(StorageType storageType);
+    long countByStorageTypeAndIsOccupiedFalse(StorageType storageType);
 }

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*") // Allows React frontend to connect
 public class AuthController {
 
     @Autowired
@@ -69,7 +68,7 @@ public class AuthController {
                 .username(registerRequest.getUsername())
                 .email(registerRequest.getEmail())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
-                .role(registerRequest.getRole() != null ? registerRequest.getRole() : com.rvs.backend.enums.Role.ROLE_CLIENT)
+                .role(com.rvs.backend.enums.Role.ROLE_CLIENT)
                 .build();
 
         User savedUser = userRepository.save(user);
